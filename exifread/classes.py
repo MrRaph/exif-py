@@ -498,6 +498,13 @@ class ExifHeader:
                 del self.tags[makernote.canon.CAMERA_INFO_TAG_NAME]
             return
 
+        # Panasonic
+        if make == 'Panasonic':
+            self.dump_ifd(note.field_offset, 'MakerNote',
+                          tag_dict=makernote.panasonic.TAGS)
+            return
+
+
     def _olympus_decode_tag(self, value, mn_tags):
         """ TODO Decode Olympus MakerNote tag based on offset within tag."""
         pass
